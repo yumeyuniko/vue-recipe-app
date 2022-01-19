@@ -48,10 +48,10 @@
 
           <div class="group">
             <label>Method</label>
-            <div class="method">
-              <textarea></textarea>
+            <div class="method" v-for="i in newRecipe.methodRows" :key="i">
+              <textarea v-model="newRecipe.method[i - 1]"></textarea>
             </div>
-            <button type="button">Add step</button>
+            <button type="button" @click="addNewStep">Add step</button>
           </div>
           <button type="submit">Add Recipe</button>
           <button type="button" @click="togglePopup">Close</button>
@@ -163,6 +163,8 @@ h1 {
   border-radius: 1rem;
   width: 100%;
   max-width: 768px;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .popup-content h2 {
