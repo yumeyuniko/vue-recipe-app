@@ -36,6 +36,8 @@
             </div>
             <button type="button">Add step</button>
           </div>
+          <button type="submit">Add Recipe</button>
+          <button type="button">Close</button>
         </form>
       </div>
     </div>
