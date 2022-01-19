@@ -3,8 +3,19 @@
     <h1>My Recipes</h1>
     <button @click="togglePopup">Add new Recipe</button>
 
-    <div class="recipes"></div>
-    <!-- RECIPE TO GO HERE -->
+    <div class="recipes">
+      <div
+        class="card"
+        v-for="recipe in $store.state.recipes"
+        :key="recipe.slug"
+      >
+        <h2>{{ recipe.title }}</h2>
+        <p>{{ recipe.description }}</p>
+        <router-link :to="`/recipe/${recipe.slug}`">
+          <button>View Recipe</button>
+        </router-link>
+      </div>
+    </div>
 
     <div class="add-recipe-popup" v-if="popupOpen">
       <div class="popup-content">
