@@ -6,6 +6,7 @@ export default createStore({
       {
         slug: 'katsu-curry',
         title: 'katsu Curry',
+        description: 'A delicious curry made with chicken, potatoes, and a special sauce',
         ingredients: [
           '1 tablespoon olive oil',
           '1 onion, chopped',
@@ -39,7 +40,7 @@ export default createStore({
       }
     ]
   },
-  
+
   mutations: {
     ADD_RECIPE (state, recipe) {
       state.recipes.push(recipe)
