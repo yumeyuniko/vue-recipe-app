@@ -21,15 +21,15 @@
       <div class="popup-content">
         <h2>Add new recipe</h2>
 
-        <form @submit.prevent="">
+        <form @submit.prevent="addNewRecipe">
           <div class="group">
             <label>Title</label>
-            <input type="text" />
+            <input type="text" v-model="newRecipe.title" />
           </div>
 
           <div class="group">
             <label>Description</label>
-            <textarea></textarea>
+            <textarea v-model="newRecipe.description"></textarea>
           </div>
 
           <div class="group">
@@ -94,8 +94,21 @@ export default {
       newRecipe.value.methodRows++;
     };
 
+    const addNewRecipe = () => {
+      newRecipe.value.slug = newRecipe.value.title
+        .toLowerCase()
+        .replace(/\s/g, "-");
+
+      if (newRecipe.value.slug == "") {
+        alert("Please enter a title");
+        return;
+      }
+      togglePopup();
+    };
+
     return {
       newRecipe,
+      addNewRecipe,
       togglePopup,
       popupOpen,
       addNewStep,
