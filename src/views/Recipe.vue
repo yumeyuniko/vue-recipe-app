@@ -2,6 +2,24 @@
   <div class="recipe">
     <router-link to="/">&lt; Back</router-link>
     <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.description }}</p>
+    <hr />
+    <div class="ingredients">
+      <h3>Ingredient</h3>
+      <ul>
+        <li v-for="(ingredient, i) in recipe.ingredients" :key="i">
+          {{ ingredient }}
+        </li>
+      </ul>
+    </div>
+    <div class="method">
+      <h3>Method</h3>
+      <ol>
+        <li v-for="(step, i) in recipe.method" :key="i">
+          {{ step }}
+        </li>
+      </ol>
+    </div>
   </div>
 </template>
 
